@@ -13,6 +13,19 @@ module.exports = {
                 include: [ srcPath ],
             },
             {
+              test: /\.md$/,
+              use: [
+                'vue-loader',
+                {
+                  loader: '@vuepress/markdown-loader',
+                  options: {
+                    sourceDir: srcPath,
+                  }
+                }
+              ],
+              include: [ srcPath ],
+            },
+            {
                 test: /\.js$/,
                 loader: 'babel-loader',
                 include: [ srcPath ],

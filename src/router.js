@@ -12,7 +12,12 @@ export function createRouter () {
                 path: '/',
                 component: Home,
                 name: 'home'
-            }
+            },
+            {
+              path: '/about',
+              component: () => import("./pages/about.md"),
+              name: 'about'
+          }
         ]
     });
 };

@@ -7,12 +7,15 @@
   },
   "dependencies": {
     "express": "^4.17.1",
+    "toml": "^3.0.0",
     "vue": "^2.6.11",
     "vue-meta": "^2.3.3",
     "vue-router": "^3.1.6"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
+    "@vuepress/markdown": "^1.5.0",
+    "@vuepress/markdown-loader": "^1.5.0",
     "babel-loader": "^8.1.0",
     "cross-env": "^7.0.2",
     "css-loader": "^3.5.3",
@@ -24,6 +27,8 @@
     "serve": "^11.3.0",
     "style-loader": "^1.2.1",
     "url-loader": "^4.1.0",
+    "vmark": "^1.2.0",
+    "vmark-loader": "^1.0.0",
     "vue-loader": "^15.9.2",
     "vue-server-renderer": "^2.6.11",
     "vue-template-compiler": "^2.6.11",
