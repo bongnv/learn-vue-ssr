@@ -2,10 +2,13 @@ const path = require('path');
 const webpack = require('webpack');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const merge = require('webpack-merge');
+const VueSSRClientPlugin = require('vue-server-renderer/client-plugin')
 
 const base = require('./webpack.base.config');
 const isProduction = process.env.NODE_ENV === 'production';
 const srcPath = path.resolve(process.cwd(), 'src');
+
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -15,7 +18,7 @@ module.exports = merge(base, {
   },
   output: {
     path: path.resolve(process.cwd(), 'dist'),
-    publicPath: '/public',
+    publicPath: '/',
     filename: isProduction ? '[name].[hash].js' : '[name].js',
     sourceMapFilename: isProduction ? '[name].[hash].js.map' : '[name].js.map',
   },
@@ -42,6 +45,8 @@ module.exports = merge(base, {
         filename: '[name].[contenthash].css',
       }),
       new VueLoaderPlugin(),
+      new VueSSRClientPlugin(),
+      new BundleAnalyzerPlugin(),
     ]
     :
     [
@@ -50,6 +55,7 @@ module.exports = merge(base, {
         hmr: true,
       }),
       new VueLoaderPlugin(),
+      new VueSSRClientPlugin(),
       new webpack.HotModuleReplacementPlugin(),
     ]
   )
